@@ -1,0 +1,23 @@
+.loginSec{
+    background: url(../../assets/imgs/BG.jpg) center center no-repeat;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+.overlay{
+    margin: 0;
+    padding: 14% 0;
+    background-color: rgb(0 0 0 / 68%);
+    height: 100vh;
+}
+form{
+    background-color: rgb(0 0 0 / 68%);
+    border-radius: 15px;
+    padding: 30px 10px !important;
+    box-shadow: 0 0 8px 2px black !important;
+    margin: auto;
+}
+.imgLogo{
+    width: 126px;
+}

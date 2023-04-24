@@ -1,0 +1,6 @@
+"customer name","customer type","value","payment method"
+"C1","individual","22334"," credit card"
+"C2","company","231536","master card"
+"c3","company","4544","credit card"
+"c4","individual","100","credit card"
+"c4","individual","200","credit card"

@@ -1,0 +1,22 @@
+<section class="container-fluid loginSec">
+    <div class="overlay">
+        <div class="form-group">
+            <form class="form-group m-auto p-3 col-3" #loginForm="ngForm" (ngSubmit)="login()">
+                <div class="m-auto text-center">
+                <div *ngIf="invalidLogin" class="alert alert-danger">Invalid email or password</div>
+                </div>
+                <div class="form-group m-3">
+                    <label for="" class="text-white bold">User name</label>
+                     <input type="text" name="userName" [(ngModel)]="service.user.name" class="form-control" required autofocus />
+                </div>
+                <div class="form-group m-3">
+                    <label for="" class="text-white bold">Password</label>
+                     <input type="password" name="password" [(ngModel)]="service.user.password" class="form-control" required />
+                </div>
+                <div class="form-group m-3">
+                    <button class="btn btn-secondary" type="submit">Login</button>
+                 </div>
+            </form>
+        </div>
+    </div>
+</section>

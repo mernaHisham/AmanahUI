@@ -1,0 +1,34 @@
+<form class="form-group m-auto" #dataForm="ngForm" (ngSubmit)="SubmitData()">
+    <input type="hidden"  [(ngModel)]="service.formData.id" name="id">
+    <div class="row">
+        <div class="col-6">
+            <label for="customerName">Name</label>
+            <input id="customerName" type="text" type="text" name="customerName" [(ngModel)]="service.formData.customerName" class="form-control" required>
+            <div *ngIf="RequiredName" class="text-danger">this field is required</div>
+        </div>
+        <div class="col-6">
+            <label for="customerType">Customer type</label>         
+            <p-dropdown [options]="Types" #customerType="ngModel" name="customerType" [(ngModel)]="service.formData.customerType" optionLabel="name" optionValue="value"></p-dropdown>
+
+            <div *ngIf="RequiredType" class="text-danger">this field is required</div>
+        </div>
+        <div class="col-6">
+            <label for="value">value</label>
+            <input id="value" type="number" name="value"  [(ngModel)]="service.formData.value" class="form-control" required>
+            <div *ngIf="RequiredValue" class="text-danger">this field is required</div>
+        </div>
+        <div class="col-6">
+            <label for="paymentMethod">Payment method</label>
+            <p-dropdown [options]="Methods" #paymentMethod="ngModel" name="paymentMethod" [(ngModel)]="service.formData.paymentMethod" optionLabel="name" optionValue="value"></p-dropdown>
+            <div *ngIf="RequiredpayMethod" class="text-danger">this field is required</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2 offset-7">
+        <button type="submit" class="btn btn-success m-2">Save</button>
+        </div>
+        <div class="col-2">
+            <button type="button" (click)="service.ResetForm()" class="btn btn-danger m-2">Cancel</button>
+        </div>
+    </div>
+</form>

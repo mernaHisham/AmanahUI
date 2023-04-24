@@ -1,0 +1,52 @@
+  <section class="container-fluid invSec">
+    <div class="overlay">
+<h3 class="offset-1 text-white">Invoices</h3>
+<div class="container">
+    <div class="row">
+        <div class="col">
+        <p-table #dt [columns]="cols" [value]="service.list" styleClass="p-datatable-striped" [tableStyle]="{'min-width': '50rem'}" [exportHeader]="'customExportHeader'">
+            <ng-template pTemplate="caption">
+                <div class="flex">
+                    <p-button (click)="openNew()" label="Add invoice"></p-button>
+                    <button type="button" pButton pRipple icon="pi pi-file" (click)="dt.exportCSV()" class="p-button-info ml-auto" tooltipPosition="bottom"></button>
+                </div>
+            </ng-template>
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Customer name
+                        <p-columnFilter type="text" field="customerName" display="Customer name"></p-columnFilter>
+                    </th>
+                    <th>Customer type
+                        <p-columnFilter type="text" field="customerType" display="Customer type"></p-columnFilter>
+                    </th>
+                    <th>Value
+                        <p-columnFilter type="text" field="value" display="Value"></p-columnFilter>
+                    </th>
+                    <th>Payment method
+                        <p-columnFilter type="text" field="paymentMethod" display="Payment method"></p-columnFilter>
+                    </th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-inv>
+                <tr>
+                    <td>{{inv.customerName}}</td>
+                    <td>{{inv.customerType}}</td>
+                    <td>{{inv.value}}</td>
+                    <td>{{inv.paymentMethod}}</td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="summary">
+                <div class="flex align-items-center justify-content-between">In total there are {{service.totalVal}} EGP.</div>
+            </ng-template>
+        </p-table>
+    </div>
+        </div>
+    </div>
+</div>
+</section>
+ 
+
+  
+<p-dialog header="Add invoice"  [modal]="true" position="right" [(visible)]="service.visible" [style]="{width: '50vw'}">
+   <app-invoice-form></app-invoice-form>
+</p-dialog>
